@@ -6,6 +6,10 @@
     --dark: #111111;
 }
 
+img[src*="icon"] {
+    filter: brightness(0);
+}
+
 .back-to-top {
     position: fixed;
     display: none;
