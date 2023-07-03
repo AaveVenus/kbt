@@ -14,7 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="navbar-nav ms-auto py-4 py-lg-0">
             <a href="/" class="nav-item nav-link">Home</a>
             <a href="/about.html" class="nav-item nav-link">About</a>
-            <a href="/service2.html" class="nav-item nav-link">Service</a>
+            <!-- <a href="/service2.html" class="nav-item nav-link">Service</a> -->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
+                <div class="dropdown-menu shadow-sm m-0">
+                    <a href="/weather.html" class="dropdown-item nav-item">Weather</a>
+                    <a href="/rent.html" class="dropdown-item nav-item">Rental</a>
+                </div>
+            </div> 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu shadow-sm m-0">
@@ -91,11 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href.lastIndexOf("/")
     );
 
-    if (currentActive == "/faq.html" || currentActive == "/404.html") {
-        navbar.querySelector('a[href="#"]').classList.add("active");
-    }
-    
     var selector = 'a[href="' + currentActive + '"].nav-item';
+
+    if(navbar.querySelector(selector).closest('.dropdown-menu') !== null){
+        navbar.querySelector(selector).parentElement.parentElement.querySelector('.dropdown-toggle').classList.add('active')
+    }
     
     navbar.querySelector(selector).classList.add("active");
 }); 
